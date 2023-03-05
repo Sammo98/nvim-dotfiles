@@ -12,5 +12,5 @@ map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
 map('n', '<leader>tc', '<Cmd>BufferClose<CR>', opts)
 
 -- General Tab Commands
-vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tn", '<CMD> tabnew <CR>')
 

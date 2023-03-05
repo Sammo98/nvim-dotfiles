@@ -7,13 +7,73 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Telescope
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+ -- Dashboard -------------------------------------------------------------- 
+ use {
+     'glepnir/dashboard-nvim',
+     event = 'VimEnter',
+     config = function()
+         require('dashboard').setup {
+             theme = "hyper",
+             config = {
+                 week_header = {
+                     enable = true,
+                 },
+                 shortcut = {
+                     {
+                         icon = ' ',
+                         icon_hl = '@variable',
+                         desc = 'Files',
+                         group = 'Label',
+                         action = 'Telescope find_files',
+                         key = 'spc ff',
+                     },
 
+                 },
+                 packages = {enable = false}, 
+                 footer = {}
+             }
+         }
+     end
+ }
+ ---------------------------------------------------------------------------
+
+ -- which-key -------------------------------------------------------------
+ use {
+     "folke/which-key.nvim",
+     config = function()
+         vim.o.timeout = true
+         vim.o.timeoutlen = 300
+         require("which-key").setup {
+         }
+     end
+ }
+ ---------------------------------------------------------------------------
+ 
+ --zen----------------------------------------------------------------------
+ use {
+     "folke/zen-mode.nvim",
+     config = function()
+         require("zen-mode").setup {
+             width = 0.85,
+         }
+     end
+ }
+
+ ---------------------------------------------------------------------------
+
+ -- comment ----------------------------------------------------------------
+ use {
+     'numToStr/Comment.nvim',
+     config = function()
+         require('Comment').setup()
+     end
+ }
+ ---------------------------------------------------------------------------
+  -- Plenary - required by many for async work
+  use('nvim-lua/plenary.nvim')
+
+  -- Telescope
+  use{'nvim-telescope/telescope.nvim', tag = '0.1.1'}
 
   -- Theme
   use('navarasu/onedark.nvim')
@@ -31,34 +91,27 @@ return require('packer').startup(function(use)
   -- Undotree
   use('mbbill/undotree')
 
-  --use({
-  --    "aserowy/tmux.nvim",
-  --    config = function() return require("tmux").setup() end
-  --})
-  --use('tpope/vim-fugitive')
-
-
   -- LSP CONFIG
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
 		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},             -- Required
-		  {'williamboman/mason.nvim'},           -- Optional
-		  {'williamboman/mason-lspconfig.nvim'}, -- Optional
+		  {'neovim/nvim-lspconfig'},             
+		  {'williamboman/mason.nvim'},           
+		  {'williamboman/mason-lspconfig.nvim'}, 
 
 		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},         -- Required
-		  {'hrsh7th/cmp-nvim-lsp'},     -- Required
-		  {'hrsh7th/cmp-buffer'},       -- Optional
-		  {'hrsh7th/cmp-path'},         -- Optional
-		  {'saadparwaiz1/cmp_luasnip'}, -- Optional
-		  {'hrsh7th/cmp-nvim-lua'},     -- Optional
+		  {'hrsh7th/nvim-cmp'},         
+		  {'hrsh7th/cmp-nvim-lsp'},     
+		  {'hrsh7th/cmp-buffer'},       
+		  {'hrsh7th/cmp-path'},         
+		  {'saadparwaiz1/cmp_luasnip'}, 
+		  {'hrsh7th/cmp-nvim-lua'},     
 
 		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},             -- Required
-		  {'rafamadriz/friendly-snippets'}, -- Optional
+		  {'L3MON4D3/LuaSnip'},             
+		  {'rafamadriz/friendly-snippets'}, 
 	  }
   }
 
@@ -71,10 +124,9 @@ return require('packer').startup(function(use)
   -- Surround
   use({
       "kylechui/nvim-surround",
-      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      tag = "*", 
       config = function()
           require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
           })
       end
   })
@@ -85,15 +137,12 @@ return require('packer').startup(function(use)
       requires = "nvim-tree/nvim-web-devicons",
       config = function()
           require("trouble").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
           }
       end
   }
-  use {
-      'ggandor/leap.nvim',
-      requires = 'tpope/vim-repeat' 
-  }
+  use {'ggandor/leap.nvim', requires = 'tpope/vim-repeat' }
+  use('sindrets/diffview.nvim')
+
+
  end)
 

@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>dt", vim.cmd.TroubleToggle)
+vim.keymap.set("n", "<leader>dt", "<CMD> TroubleToggle <CR>")
