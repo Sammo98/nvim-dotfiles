@@ -140,9 +140,9 @@ return require('packer').startup(function(use)
           }
       end
   }
-  use {'ggandor/leap.nvim', requires = 'tpope/vim-repeat' }
   use('sindrets/diffview.nvim')
   use 'tamton-aquib/staline.nvim'
+  use 'm4xshen/autoclose.nvim'
 
 
  end)

@@ -8,3 +8,5 @@ map("x", "<leader>p", "\"_dP")
 -- Split window vertically
 map("n", "<leader>wi", "<C-w>")
 
+-- Search
+map("n", "<leader>s", "/")
