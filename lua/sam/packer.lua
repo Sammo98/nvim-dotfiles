@@ -117,10 +117,7 @@ return require('packer').startup(function(use)
 
   -- Tabs and Terminal
   use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-  end}
-
+  use "numToStr/FTerm.nvim"
   -- Surround
   use({
       "kylechui/nvim-surround",
