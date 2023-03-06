@@ -142,6 +142,7 @@ return require('packer').startup(function(use)
   }
   use {'ggandor/leap.nvim', requires = 'tpope/vim-repeat' }
   use('sindrets/diffview.nvim')
+  use 'tamton-aquib/staline.nvim'
 
 
  end)
