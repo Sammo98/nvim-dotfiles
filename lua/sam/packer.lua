@@ -140,7 +140,8 @@ return require('packer').startup(function(use)
   use('sindrets/diffview.nvim')
   use 'tamton-aquib/staline.nvim'
   use 'm4xshen/autoclose.nvim'
-
+  use 'karb94/neoscroll.nvim'
+  use 'ThePrimeagen/harpoon'
 
  end)
 
