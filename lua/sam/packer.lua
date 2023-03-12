@@ -142,5 +142,11 @@ return require('packer').startup(function(use)
   use 'karb94/neoscroll.nvim'
   use 'ThePrimeagen/harpoon'
   use 'nvim-lualine/lualine.nvim'
+  use({
+        "andrewferrier/wrapping.nvim",
+        config = function()
+            require("wrapping").setup()
+        end,
+    })
  end)
 
